@@ -46,7 +46,12 @@ class CupcakeOrder: ObservableObject, Codable{
     
     var orderCost:Double{
         var orderCost = Double(quantity)*2
-        
+        if(addSprinkles){
+            orderCost += Double(quantity)/2
+        }
+        if(extraTopping){
+            orderCost += Double(quantity)
+        }
         return orderCost
     }
     

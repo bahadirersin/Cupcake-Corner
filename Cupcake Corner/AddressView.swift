@@ -12,7 +12,7 @@ struct AddressView: View {
     @ObservedObject var order:CupcakeOrder
     
     var body: some View {
-        NavigationView{
+
             Form{
                 Section{
                     TextField("Name",text: $order.customerName)
@@ -32,7 +32,7 @@ struct AddressView: View {
                 }
             }.navigationTitle("Address Details")
                 .navigationBarTitleDisplayMode(.inline)
-        }
+        
     }
 }
 

@@ -29,6 +29,13 @@ struct ContentView: View {
                         Toggle("Add Sprinkles", isOn:$order.addSprinkles)
                     }
                     
+                    HStack{
+                        Text("Total Cost:")
+                            .fontWeight(.bold)
+                        Spacer()
+                        Text("\(order.orderCost, format: .currency(code: "USD"))")
+                            .fontWeight(.bold)
+                    }
                 }
                 
                 Section{
