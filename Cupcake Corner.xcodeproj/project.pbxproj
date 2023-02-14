@@ -14,6 +14,7 @@
 		3BDF1A63299B7BB1009AEC5B /* CupcakeOrder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BDF1A62299B7BB1009AEC5B /* CupcakeOrder.swift */; };
 		3BDF1A65299B812A009AEC5B /* AddressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BDF1A64299B812A009AEC5B /* AddressView.swift */; };
 		3BDF1A67299B83AE009AEC5B /* CheckoutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BDF1A66299B83AE009AEC5B /* CheckoutView.swift */; };
+		3BDF1A69299C0B53009AEC5B /* CupcakeOrderStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BDF1A68299C0B53009AEC5B /* CupcakeOrderStruct.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +26,7 @@
 		3BDF1A62299B7BB1009AEC5B /* CupcakeOrder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CupcakeOrder.swift; sourceTree = "<group>"; };
 		3BDF1A64299B812A009AEC5B /* AddressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressView.swift; sourceTree = "<group>"; };
 		3BDF1A66299B83AE009AEC5B /* CheckoutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutView.swift; sourceTree = "<group>"; };
+		3BDF1A68299C0B53009AEC5B /* CupcakeOrderStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CupcakeOrderStruct.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -41,6 +43,7 @@
 		3BDF1A48299B7B15009AEC5B = {
 			isa = PBXGroup;
 			children = (
+				3BDF1A68299C0B53009AEC5B /* CupcakeOrderStruct.swift */,
 				3BDF1A53299B7B15009AEC5B /* Cupcake Corner */,
 				3BDF1A52299B7B15009AEC5B /* Products */,
 			);
@@ -150,6 +153,7 @@
 				3BDF1A65299B812A009AEC5B /* AddressView.swift in Sources */,
 				3BDF1A67299B83AE009AEC5B /* CheckoutView.swift in Sources */,
 				3BDF1A57299B7B15009AEC5B /* ContentView.swift in Sources */,
+				3BDF1A69299C0B53009AEC5B /* CupcakeOrderStruct.swift in Sources */,
 				3BDF1A55299B7B15009AEC5B /* Cupcake_CornerApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

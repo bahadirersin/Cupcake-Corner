@@ -13,6 +13,10 @@ struct CheckoutView: View {
     @State private var displayOrderComplete = false
     @State private var confirmationMessage = ""
     
+    
+    @State private var displayOrderFailure = false
+    @State private var failureMessage = ""
+    
     var body: some View {
     ScrollView{
         VStack{
@@ -32,8 +36,8 @@ struct CheckoutView: View {
                     .padding(.bottom,5)
                 
                 Divider()
-                Text("To: \(order.customerName)")
-                Text("Address: \(order.customerAddress), \(order.customerCity), \(order.customerCountry)")
+                Text("To: \(order.cupcake.customerName)")
+                Text("Address: \(order.cupcake.customerAddress), \(order.cupcake.customerCity), \(order.cupcake.customerCountry)")
                 
             }.padding([.bottom,.top])
                 .padding(.leading)
@@ -44,16 +48,16 @@ struct CheckoutView: View {
                     .padding(.bottom,5)
                 
                 Divider()
-                Text("\(order.quantity) x \(CupcakeOrder.types[order.type]) Cakes")
-                Text(order.addSprinkles == true ? "With Sprinkles" : "Without Sprinkles")
-                Text(order.extraTopping == true ? "Extra Topping Added" : "No Extra Topping")
-                Text("Your total amount to pay is \(order.orderCost, format: .currency(code: "USD"))")
+                Text("\(order.cupcake.quantity) x \(CupcakeOrderStruct.types[order.cupcake.type]) Cakes")
+                Text(order.cupcake.addSprinkles == true ? "With Sprinkles" : "Without Sprinkles")
+                Text(order.cupcake.extraTopping == true ? "Extra Topping Added" : "No Extra Topping")
+                Text("Your total amount to pay is \(order.cupcake.orderCost, format: .currency(code: "USD"))")
                     .fontWeight(.bold)
             }.padding([.bottom,.top])
                 .padding(.leading)
             
             
-            Button("Place Order: \(order.orderCost, format: .currency(code: "USD"))"){
+            Button("Place Order: \(order.cupcake.orderCost, format: .currency(code: "USD"))"){
                 Task{
                     await placeOrder()
                 }
@@ -67,6 +71,10 @@ struct CheckoutView: View {
                 
             }message:{
                 Text(confirmationMessage)
+            }.alert("Failed to Proceed", isPresented: $displayOrderFailure){
+                Button("OK"){}
+            }message: {
+                Text(failureMessage)
             }
             
             
@@ -89,10 +97,12 @@ struct CheckoutView: View {
         do{
             let (data,_) = try await URLSession.shared.upload(for: request, from: encoded)
             let decoded = try JSONDecoder().decode(CupcakeOrder.self, from: data)
-            confirmationMessage = "Thank you for ordering \(decoded.quantity)x \(CupcakeOrder.types[decoded.type]) cakes"
+            confirmationMessage = "Thank you for ordering \(decoded.cupcake.quantity)x \(CupcakeOrderStruct.types[decoded.cupcake.type]) cakes"
             displayOrderComplete = true
         }catch{
             print("Checkout Failed")
+            displayOrderFailure = true
+            failureMessage = "There was an error proceeding your order! Please try again!"
         }
         
     }

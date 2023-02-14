@@ -16,24 +16,24 @@ struct ContentView: View {
         NavigationView{
             Form{
                 Section{
-                    Picker("Select your cake type", selection: $order.type){
-                        ForEach(CupcakeOrder.types.indices){
-                            Text(CupcakeOrder.types[$0])
+                    Picker("Select your cake type", selection: $order.cupcake.type){
+                        ForEach(CupcakeOrderStruct.types.indices){
+                            Text(CupcakeOrderStruct.types[$0])
                         }
                     }
-                    Stepper("Numbe of cakes: \(order.quantity)", value: $order.quantity, in:1...20)
-                    Toggle("Add Extras", isOn: $order.additionalRequests.animation())
+                    Stepper("Numbe of cakes: \(order.cupcake.quantity)", value: $order.cupcake.quantity, in:1...20)
+                    Toggle("Add Extras", isOn: $order.cupcake.additionalRequests.animation())
                     
-                    if(order.additionalRequests){
-                        Toggle("Extra Topping", isOn: $order.extraTopping)
-                        Toggle("Add Sprinkles", isOn:$order.addSprinkles)
+                    if(order.cupcake.additionalRequests){
+                        Toggle("Extra Topping", isOn: $order.cupcake.extraTopping)
+                        Toggle("Add Sprinkles", isOn:$order.cupcake.addSprinkles)
                     }
                     
                     HStack{
                         Text("Total Cost:")
                             .fontWeight(.bold)
                         Spacer()
-                        Text("\(order.orderCost, format: .currency(code: "USD"))")
+                        Text("\(order.cupcake.orderCost, format: .currency(code: "USD"))")
                             .fontWeight(.bold)
                     }
                 }

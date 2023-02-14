@@ -15,11 +15,11 @@ struct AddressView: View {
 
             Form{
                 Section{
-                    TextField("Name",text: $order.customerName)
-                    TextField("Address",text: $order.customerAddress)
-                    TextField("City",text: $order.customerCity)
-                    TextField("Country",text: $order.customerCountry)
-                    TextField("Zip Code", text: $order.customerZipCode)
+                    TextField("Name",text: $order.cupcake.customerName)
+                    TextField("Address",text: $order.cupcake.customerAddress)
+                    TextField("City",text: $order.cupcake.customerCity)
+                    TextField("Country",text: $order.cupcake.customerCountry)
+                    TextField("Zip Code", text: $order.cupcake.customerZipCode)
                         .keyboardType(.numberPad)
                 }
                 
@@ -28,7 +28,7 @@ struct AddressView: View {
                         CheckoutView(order: order)
                     }label:{
                         Text("Continue to Checkout")
-                    }.disabled(order.hasValidAddress == false)
+                    }.disabled(order.cupcake.hasValidAddress == false)
                 }
             }.navigationTitle("Address Details")
                 .navigationBarTitleDisplayMode(.inline)
